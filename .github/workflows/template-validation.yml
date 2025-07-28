@@ -1,0 +1,103 @@
+name: Template Validation
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  validate-template:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+      
+    - name: Validate Markdown files
+      uses: DavidAnson/markdownlint-cli2-action@v13
+      with:
+        globs: '**/*.md'
+        config: |
+          {
+            "line-length": false,
+            "no-inline-html": false,
+            "first-line-heading": false
+          }
+        
+    - name: Check for required files
+      run: |
+        echo "Checking for required template files..."
+        required_files=(
+          "README.md"
+          "CONTRIBUTING.md" 
+          "LICENSE"
+          "SECURITY.md"
+          "docs/DESCRIPTION.md"
+          "docs/contributing/ISSUES.md"
+          "docs/contributing/PULL-REQUESTS.md"
+        )
+        
+        missing_files=()
+        for file in "${required_files[@]}"; do
+          if [[ ! -f "$file" ]]; then
+            missing_files+=("$file")
+          fi
+        done
+        
+        if [[ ${#missing_files[@]} -ne 0 ]]; then
+          echo "❌ Missing required files:"
+          printf '%s\n' "${missing_files[@]}"
+          exit 1
+        else
+          echo "✅ All required template files are present"
+        fi
+        
+    - name: Validate README structure
+      run: |
+        echo "Validating README structure..."
+        required_sections=(
+          "# Infosys Global Hackathon 2025"
+          "## Project Overview"
+          "## Technical Implementation" 
+          "## Getting Started"
+          "## Contributing"
+          "## Contributors"
+        )
+        
+        missing_sections=()
+        for section in "${required_sections[@]}"; do
+          if ! grep -q "$section" README.md; then
+            missing_sections+=("$section")
+          fi
+        done
+        
+        if [[ ${#missing_sections[@]} -ne 0 ]]; then
+          echo "❌ Missing required README sections:"
+          printf '%s\n' "${missing_sections[@]}"
+          exit 1
+        else
+          echo "✅ README structure is valid"
+        fi
+
+    - name: Check for template placeholders
+      run: |
+        echo "Checking for unmodified template placeholders..."
+        # This is informational - we expect placeholders in a template
+        if grep -r "\[Replace with" . --include="*.md" || \
+           grep -r "\[Your " . --include="*.md" || \
+           grep -r "\[Insert " . --include="*.md"; then
+          echo "ℹ️  Template placeholders found (expected in template repository)"
+        else
+          echo "✅ No template placeholders found"
+        fi
+        
+    - name: Validate contributing guidelines
+      run: |
+        echo "Validating contributing guidelines..."
+        if grep -q "Infosys-Global-Hackathon/GlobalHackathonSample" CONTRIBUTING.md; then
+          echo "✅ Contributing guidelines contain correct repository references"
+        else
+          echo "❌ Contributing guidelines missing repository references"
+          exit 1
+        fi

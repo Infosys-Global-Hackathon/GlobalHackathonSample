@@ -1,0 +1,44 @@
+# Repository settings for GlobalHackathonSample
+# This file configures repository settings when used as a template
+
+# Repository description
+description: "Template repository for Infosys Global Hackathon 2025 - Code for a cause, Build for the world"
+
+# Repository topics/tags
+topics:
+  - hackathon
+  - template
+  - infosys
+  - sdg
+  - sustainability
+  - tech-for-good
+  - cloud-native
+  - open-source
+  - cncf
+
+# Homepage URL
+homepage: "https://github.com/Infosys-Global-Hackathon/GlobalHackathonSample"
+
+# Default branch
+default_branch: main
+
+# Repository features
+has_issues: true
+has_projects: true
+has_wiki: false
+has_downloads: true
+
+# Security
+has_vulnerability_alerts: true
+has_automated_security_fixes: true
+
+# Merge options
+allow_merge_commit: true
+allow_squash_merge: true
+allow_rebase_merge: true
+
+# Branch protection (recommended for template users)
+# Note: These would need to be configured manually in repository settings
+# - Require pull request reviews before merging
+# - Require status checks to pass before merging
+# - Include administrators in restrictions
