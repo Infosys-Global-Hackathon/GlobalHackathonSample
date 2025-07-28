@@ -448,7 +448,7 @@ Found a problem? We want to hear about it!
 This project exists thanks to all the people who contribute:
 
 <a href="https://github.com/Infosys-Global-Hackathon/GlobalHackathonSample/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=Infosys-Global-Hackathon/GlobalHackathonSample" />
+  <img src="https://contrib.rocks/image?repo=Infosys-Global-Hackathon/GlobalHackathonSample" />
 </a>
 
 ### 🏆 Core Team
