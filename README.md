@@ -1,6 +1,8 @@
 # Infosys Global Hackathon 2025 - Template Repository
 ## When the World is your Client
 
+NSTRUCTIONS: This GitHub repository serves as a template and example you can use to create a well documented Repo for your project for Infosys Global Hackathon.
+
 [![Infosys](https://img.shields.io/badge/Powered%20by-Infosys-blue.svg)](https://www.infosys.com/) [![TechForGood](https://img.shields.io/badge/%23TechForGood-Global%20Initiative-green)](https://github.com/Infosys-Global-Hackathon/GlobalHackathonSample) [![SDGs](https://img.shields.io/badge/UN-SDGs%20Focused-orange)](https://sdgs.un.org/) [![Template](https://img.shields.io/badge/Use%20This-Template-success)](https://github.com/Infosys-Global-Hackathon/GlobalHackathonSample/generate) [![Issues](https://img.shields.io/github/issues/Infosys-Global-Hackathon/GlobalHackathonSample)](https://github.com/Infosys-Global-Hackathon/GlobalHackathonSample/issues) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Infosys-Global-Hackathon/GlobalHackathonSample/pulls)
 
 **Code for a cause. Build for the world.**
